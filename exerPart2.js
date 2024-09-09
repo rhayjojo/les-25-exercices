@@ -1,14 +1,13 @@
 // EXERCICE 1
-/* function verify(numberUser){
-    return Math.round(Math.random()*9)+1 === numberUser ? 'Good Work' : 'Not matched'
+/* function FindTheRightNumber(inputNumber){
+    return Math.round(Math.random()*9)+1 === inputNumber ? 'Good Work' : 'Not matched'
 }
 
-console.log(verify(5)) */
-
+console.log(FindTheRightNumber(5))  */
 
 
 // EXERCICE 2
-/* function numberDayChrismas(){
+/* function daysLeftUntilNextChrisams(){
     let christmas = new Date((new Date).getFullYear(),11,25)
     if(christmas < (new Date)){
         christmas = new Date(current.getFullYear()+1,11,25)
@@ -16,77 +15,74 @@ console.log(verify(5)) */
     return Math.floor((christmas - (new Date)) / (1000*60*60*24))  
 }
 
-console.log(numberDayChrismas()) 
-   */
+console.log(daysLeftUntilNextChrisams())  */
+   
 
 
 
 // EXERCICE 3
-/* function productMultiplication(value1,value2){
-    if(typeof value1 !== 'number' || typeof value2 !== 'number'){
-        return 'les valeurs entrées ne sont pas numériques'
-    }else if(value1 == 0 && value2 == 0){
+/* function productAndMultiplicationOfTwoNumber(value1,value2){
+    if(value1 == 0 && value2 == 0){
         return 'la division de la première valeur par la deuxième est indéterminée et le produit des deux valeurs est : ' + value1*value2
     }else{ 
         return 'le produit des deux valeurs est : '+ value1*value2 +' et la division de la première valeur par la deuxième est : '+ value1/value2
     }  
 }
 
-console.log(productMultiplication(2,3)) */
+console.log(productAndMultiplicationOfTwoNumber(2,3))  */
 
 
 
 // EXERCICE 4
-/* function longestString(array){
-    let arrayString = array.reduce((accumulator,currentValue) => typeof currentValue !== 'string' ? accumulator.concat(JSON.stringify(currentValue)) : accumulator.concat(currentValue),[])
-    return arrayString.reduce((accumulator,currentValue) => currentValue.length > accumulator.length ? accumulator = currentValue : accumulator = accumulator ,'')
+/* function getLongestString(array) {
+    let longerString = array.reduce((longer, current) => {
+        return longer.length >= current.length ? longer : current
+    }, 0)
+    return longerString;
 }
 let exampleArray = ["koki", "couscous", "banane malaxée", "eren yagers", "", 5, 984];
-console.log('la chaine la plus longue du tableau est : ', longestString(exampleArray))  */ 
+console.log('la chaine la plus longue du tableau est : ', getLongestString(exampleArray))  */ 
 
 
 
 // EXERCICE 5
 /* function highNumber(array){
-    const newArray = array.filter(a => a % 2 === 0)
-    return newArray.reduce((accumulator,currentValue) => currentValue > accumulator ? accumulator = currentValue : accumulator = accumulator ,newArray[0])
+    const newArray = array.filter(a => a % 2 === 0).reduce((accumulator,currentValue) => currentValue > accumulator ? accumulator = currentValue : accumulator = accumulator )
+    return newArray
 }
 
 const integerExample = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 983, 2, -1000, -9, 0];
-console.log(highNumber(integerExample)) */  
+console.log(highNumber(integerExample))  */
 
 
 
 
 // EXERCICE 6
 /* function characterDeleteRepetitive(str){
-    let finalArray = str.split('').filter((valeur, index) => {
-        return str.split('').indexOf(valeur) === str.split('').lastIndexOf(valeur);
-      });
-    return finalArray.join('')
+    let arrStr = str.split('');
+     const uniqueStr = [...new Set(arrStr)]
+
+     return uniqueStr.join('');
 }
 
 let exampleString = "j'essaie d'écrire une chaîne choisie au hasard juste pour&é(§è!çà) essayer"
-console.log(characterDeleteRepetitive(exampleString))  */
+console.log(characterDeleteRepetitive(exampleString))  */ 
 
 
 
 // EXERCICE 7
-/* function sumCubedNumbers(number){
+/* let sum = 0;
+function sumCubedNumbers(number){
     if(number >= 1){
-        let i = 1;
-        let sum = 0;
-        while(i <= number){
-            sum = sum + Math.pow(i,3);
-            i++ ;
-        }
-        return sum;
+        sum += Math.pow(number,3);
+        sumCubedNumbers(number-1)
     } else {
         return "enter a positive number greater than 1 !!!";
     } 
+    return sum;
 }
 
-console.log(sumCubedNumbers(1)) */
+console.log(sumCubedNumbers(3))  */
 
 
 
@@ -104,14 +100,11 @@ console.log(similarityCheck(example1,example2)) */
 
 
 // EXERCICE 9
-/* function eliminateSpecifiedValues(array,condition){
-    let specifieArray = array.filter(condition)
-    specifieArray.reduce((accumulator,currently) => array.splice(array.indexOf(currently),1),array)
-    return array; 
+/* function filterArray(arr, valuesToRemove) {
+    //valuesToRemove
+    return arr.filter(element => !valuesToRemove.includes(element));
 }
-
-let example = eliminateSpecifiedValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 981, 2, -1000, -9, 0], a => a % 2 === 0)
-console.log(example)  */
+ */
 
 
 
@@ -124,17 +117,17 @@ console.log(extraction([1,2,3,4,5,6],1,2,5))  */
 
 
 // EXERCICE 11
-/* function deleteProperty(object,property) {
-    delete object[property];
-    return object;
+/* function deletePropertyOfArray(object, property) {
+    let objectBefore = { ...object };  
+    delete object[property];           
+    return { before: objectBefore, after: object };  
 }
 var student = {
-    name : "David Rayy",
-    sclass : "VI",
-    rollno : 12 };
-console.log(student);
-deleteProperty(student,"rollno");
-console.log(student)  */
+    name: "David Rayy",
+    sclass: "VI",
+    rollno: 12
+}; 
+console.log(deletePropertyOfArray(student, "rollno"));   */
 
 
 
@@ -156,21 +149,21 @@ console.log(cylinderExample.volume())   */
 
 // EXERCICE 13
 /* function clock(second){
-    if(second < 48){
-        console.log("14 : 37 : ",second);
-        setTimeout(() => {clock(second+1)},1000);
+    if(second > 0){
+        console.log((new Date()).getHours(),':',(new Date()).getMinutes(),':',(new Date()).getSeconds());
+        setTimeout(() => {clock(second-1)},1000);
     }
 }
-clock(42)   */
+clock(10)    */
 
 
 
 // EXERCICE 14
-/* function verifyCharacter(string){
+/* function checkIfStringIsLowerCaseOrUpperCase(string){
     return string === string.toLowerCase() ? "la chaine est écrite en minuscule" : "la chaine n'est pas écrite en minuscule"
 }
 
-console.log(verifyCharacter("andkajNdza")) */
+console.log(checkIfStringIsLowerCaseOrUpperCase("andkajNdza"))  */
 
 
 
@@ -180,7 +173,7 @@ console.log(verifyCharacter("andkajNdza")) */
 /* function add(...arg){
     return new Promise((resolve,reject) => {
         if(arg.length === 2){
-            resolve('you have completed correctly')
+            resolve(arg[0]+arg[1])
         }else{
             reject('Must provide two parameters')
         }
@@ -192,6 +185,6 @@ add(1,5)
     })
     .catch((error)=>{
         console.log(error)
-    })  */
+    })   */
 
         
