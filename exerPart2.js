@@ -1,4 +1,5 @@
 // EXERCICE 1
+//replace numberUser by inputNumber
 /* function verify(numberUser){
     return Math.round(Math.random()*9)+1 === numberUser ? 'Good Work' : 'Not matched'
 }
@@ -8,6 +9,9 @@ console.log(verify(5)) */
 
 
 // EXERCICE 2
+
+//replace numberDayChrismas by daysLeftUntilNextChrisams
+
 /* function numberDayChrismas(){
     let christmas = new Date((new Date).getFullYear(),11,25)
     if(christmas < (new Date)){
@@ -22,6 +26,9 @@ console.log(numberDayChrismas())
 
 
 // EXERCICE 3
+//replace productMultiplication by productAndMultiplicationOfTwoNumber
+//trop long tu peux faire plus court
+
 /* function productMultiplication(value1,value2){
     if(typeof value1 !== 'number' || typeof value2 !== 'number'){
         return 'les valeurs entrées ne sont pas numériques'
@@ -37,6 +44,16 @@ console.log(productMultiplication(2,3)) */
 
 
 // EXERCICE 4
+/*
+replace longerString by getLongestString
+
+function getLongestString(array) {
+    let longerString = array.reduce((longer, current) => {
+        return longer.length >= current.length ? longer : current
+    }, 0)
+    return longerString;
+}
+*/
 /* function longestString(array){
     let arrayString = array.reduce((accumulator,currentValue) => typeof currentValue !== 'string' ? accumulator.concat(JSON.stringify(currentValue)) : accumulator.concat(currentValue),[])
     return arrayString.reduce((accumulator,currentValue) => currentValue.length > accumulator.length ? accumulator = currentValue : accumulator = accumulator ,'')
@@ -47,7 +64,19 @@ console.log('la chaine la plus longue du tableau est : ', longestString(exampleA
 
 
 // EXERCICE 5
-/* function highNumber(array){
+
+/* trop log voici comment j'ai fais : 
+
+function getMaxEvenNumber(array) {
+    const longestInteger = array.filter(currentNber => currentNber % 2 === 0).reduce((a, b) => {
+        return a >= b ? a : b
+    })
+    return longestInteger;
+}
+
+
+
+function highNumber(array){
     const newArray = array.filter(a => a % 2 === 0)
     return newArray.reduce((accumulator,currentValue) => currentValue > accumulator ? accumulator = currentValue : accumulator = accumulator ,newArray[0])
 }
@@ -58,7 +87,17 @@ console.log(highNumber(integerExample)) */
 
 
 
-// EXERCICE 6
+// EXERCICE 
+// ceci est correct sauf le nom de la fonction que tu dois remplacer et tu peux aussi utiliser une methode de js comme suit : 
+
+// function DeleteDuplicatedCaracter(str) {
+//     let arrStr = str.split('');
+//     const uniqueStr = [...new Set(arrStr)]
+
+//     return uniqueStr.join('');
+// }
+
+
 /* function characterDeleteRepetitive(str){
     let finalArray = str.split('').filter((valeur, index) => {
         return str.split('').indexOf(valeur) === str.split('').lastIndexOf(valeur);
@@ -72,6 +111,8 @@ console.log(characterDeleteRepetitive(exampleString))  */
 
 
 // EXERCICE 7
+
+//ici utilise une fonction recurcive
 /* function sumCubedNumbers(number){
     if(number >= 1){
         let i = 1;
@@ -93,6 +134,7 @@ console.log(sumCubedNumbers(1)) */
 
 
 // EXERCICE 8
+//bien fait 
 /* function similarityCheck(obj1,obj2){
     return Object.keys(obj2).every(a => obj1.hasOwnProperty(a) && obj1[a] === obj2[a]) ? "the first one contains equivalent property values to the second one" : "the first one doesn't contains equivalent property values to the second one"
 }
@@ -104,6 +146,15 @@ console.log(similarityCheck(example1,example2)) */
 
 
 // EXERCICE 9
+/*
+tu peux faire plus simplement comme ceci 
+
+function filterArray(arr, valuesToRemove) {
+    //valuesToRemove
+    return arr.filter(element => !valuesToRemove.includes(element));
+}
+
+*/
 /* function eliminateSpecifiedValues(array,condition){
     let specifieArray = array.filter(condition)
     specifieArray.reduce((accumulator,currently) => array.splice(array.indexOf(currently),1),array)
@@ -116,6 +167,7 @@ console.log(example)  */
 
 
 //EXERCICE 10
+// bien
 /* function extraction(array,...indexArray){
     return indexArray.reduce((accumulator,currently) => accumulator.concat(array[currently]),[])
 }
@@ -124,6 +176,9 @@ console.log(extraction([1,2,3,4,5,6],1,2,5))  */
 
 
 // EXERCICE 11
+//return also object before
+//replace deleteProperty by deletePropertyOfArray
+
 /* function deleteProperty(object,property) {
     delete object[property];
     return object;
@@ -139,6 +194,7 @@ console.log(student)  */
 
 
 // EXERCICE 12
+//ok
 /* class Cylinder {
     constructor(height, radius){
         this.height = height,
@@ -155,6 +211,7 @@ console.log(cylinderExample.volume())   */
 
 
 // EXERCICE 13
+//l'heure doit etre generer en fonction du temps actuel
 /* function clock(second){
     if(second < 48){
         console.log("14 : 37 : ",second);
@@ -166,6 +223,7 @@ clock(42)   */
 
 
 // EXERCICE 14
+//replace verifyCharacter by checkIfStringIsLowerCaseOrUpperCase
 /* function verifyCharacter(string){
     return string === string.toLowerCase() ? "la chaine est écrite en minuscule" : "la chaine n'est pas écrite en minuscule"
 }
@@ -177,6 +235,7 @@ console.log(verifyCharacter("andkajNdza")) */
 
 
 // EXERCICE 15
+// ce n'est pas ce qu'on te demande de faire ici
 /* function add(...arg){
     return new Promise((resolve,reject) => {
         if(arg.length === 2){
