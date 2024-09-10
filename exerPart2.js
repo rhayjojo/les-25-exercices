@@ -1,4 +1,5 @@
 // EXERCICE 1
+//le nom ci n'a pas de sens renplace par ceci CompareInputValueWithRandomNumber
 /* function FindTheRightNumber(inputNumber){
     return Math.round(Math.random()*9)+1 === inputNumber ? 'Good Work' : 'Not matched'
 }
@@ -7,6 +8,7 @@ console.log(FindTheRightNumber(5))  */
 
 
 // EXERCICE 2
+//bien
 /* function daysLeftUntilNextChrisams(){
     let christmas = new Date((new Date).getFullYear(),11,25)
     if(christmas < (new Date)){
@@ -21,6 +23,7 @@ console.log(daysLeftUntilNextChrisams())  */
 
 
 // EXERCICE 3
+
 /* function productAndMultiplicationOfTwoNumber(value1,value2){
     if(value1 == 0 && value2 == 0){
         return 'la division de la première valeur par la deuxième est indéterminée et le produit des deux valeurs est : ' + value1*value2
@@ -170,6 +173,19 @@ console.log(checkIfStringIsLowerCaseOrUpperCase("andkajNdza"))  */
 
 
 // EXERCICE 15
+/*
+voici comment j'ai fais 
+
+function add(a, b) {
+    return new Promise((resolve, reject) => {
+        if (arguments.length === 2) {
+            resolve(a + b)
+        } else {
+            reject("Must provide two parameters")
+        }
+    })
+}
+*/
 /* function add(...arg){
     return new Promise((resolve,reject) => {
         if(arg.length === 2){
